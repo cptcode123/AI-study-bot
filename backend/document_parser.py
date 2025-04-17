@@ -37,7 +37,7 @@ class ProcessedChunk:
     embedding: List[float]
 
 
-def file_type(file_path: str) -> str:
+def detect_file_type(file_path: str) -> str:
     """
     Determines the file type based on its extension.
 
@@ -48,15 +48,25 @@ def file_type(file_path: str) -> str:
         str: The file type (e.g., 'pdf', 'docx', 'txt').
     """
     if file_path.endswith('.pdf'):
-        parse_pdf()
-        return
+        return 'pdf'
     elif file_path.endswith('.docx'):
-        parse_docx()
-        return
+        return 'docx'
     elif file_path.endswith('.txt'):
-        parse_txt()
+        return 'txt'
     else:
         raise ValueError("Unsupported file type")
+    
+
+def parser_call(file_path: str) -> str:
+    if detect_file_type(file_path) == 'pdf':
+        # Call the PDF parser
+        return parse_pdf(file_path)
+    elif detect_file_type(file_path) == 'docx':
+        # Call the DOCX parser
+        return parse_docx(file_path)
+    elif detect_file_type(file_path) == 'txt':
+        # Call the TXT parser
+        return parse_txt(file_path)
 
 def chunk_text(text: str, chunk_size: int = 5000) -> List[str]:
     """
@@ -69,24 +79,55 @@ def chunk_text(text: str, chunk_size: int = 5000) -> List[str]:
     Returns:
         List[str]: A list of text chunks.
     """
-    chunks = []
-    start = 0
-    text_length = len(text)
-
-    while start < text_length:
-        end  = min(start + chunk_size, text_length)
-
-        # At the end of the text
-        if end >= text_length:
-            chunks.append(text[start:].strip())
-            break
-        
 
 def parse_pdf():
+    '''
+    Parses PDF files to extract text.
+    '''
     pass
 
 def parse_docx():
+    '''
+    Parses DOCX files to extract text.
+    '''
     pass
 
 def parse_txt():
+    '''
+    Parses TXT files to extract text.
+    '''
+    pass
+
+
+
+def clean_text():
+    '''
+    Cleans the extracted text for better readability and processing.
+    '''
+    pass
+
+
+def extract_metadata():
+    '''
+    Extracts metadata from the document, such as title, author, and creation date.
+    '''
+    pass
+
+def generate_embedding():
+    '''
+    Generates embeddings for the text chunks using a pre-trained model.
+    '''
+    pass
+
+
+def process_file():
+    '''
+    Main function to process the uploaded file.
+    - Detects file type
+    - Parses the file
+    - Cleans the text
+    - Optionally chunks the text
+    - Extracts metadata
+    - Generates embeddings
+    '''
     pass
