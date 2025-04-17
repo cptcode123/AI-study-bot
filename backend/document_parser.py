@@ -37,6 +37,27 @@ class ProcessedChunk:
     embedding: List[float]
 
 
+def file_type(file_path: str) -> str:
+    """
+    Determines the file type based on its extension.
+
+    Args:
+        file_path (str): The path to the file.
+
+    Returns:
+        str: The file type (e.g., 'pdf', 'docx', 'txt').
+    """
+    if file_path.endswith('.pdf'):
+        parse_pdf()
+        return
+    elif file_path.endswith('.docx'):
+        parse_docx()
+        return
+    elif file_path.endswith('.txt'):
+        parse_txt()
+    else:
+        raise ValueError("Unsupported file type")
+
 def chunk_text(text: str, chunk_size: int = 5000) -> List[str]:
     """
     Splits text into smaller chunks for processing.
@@ -60,3 +81,12 @@ def chunk_text(text: str, chunk_size: int = 5000) -> List[str]:
             chunks.append(text[start:].strip())
             break
         
+
+def parse_pdf():
+    pass
+
+def parse_docx():
+    pass
+
+def parse_txt():
+    pass
