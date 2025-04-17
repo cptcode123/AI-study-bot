@@ -34,7 +34,7 @@ An AI-powered web application that transforms study materials into interactive l
 
 - **Frontend:** Streamlit (or React + Flask)
 - **Backend:** Python, LangChain, OpenAI API
-- **Document Parsing:** PyMuPDF, `python-docx`, `pdfplumber`
+- **Document Parsing:** PyMuPDF, python-docx, pdfplumber
 - **Vector Store:** FAISS or ChromaDB
 - **Embeddings:** OpenAI, HuggingFace Transformers
 - **Extras:** Tiktoken (for chunking), spaCy/NLTK (for NLP)
