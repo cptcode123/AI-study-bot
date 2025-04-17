@@ -42,8 +42,27 @@ An AI-powered web application that transforms study materials into interactive l
 ---
 
 ## 📂 Project Structure
-smart-study-assistant/ │ ├── app/ # Main Streamlit or Flask app │ ├── pages/ # Flashcards, quiz, summary views │ ├── components/ # Reusable UI elements │ └── main.py │ ├── backend/ │ ├── document_parser.py # PDF/DOCX/TXT extractors │ ├── rag_pipeline.py # LangChain or custom retrieval logic │ ├── quiz_generator.py # AI-based quiz system │ ├── summarizer.py │ └── flashcard_creator.py │ ├── static/ │ └── sample_docs/ # Example study files │ ├── requirements.txt └── README.md
-
+```graphql
+smart-study-assistant/
+│
+├── app/                        # Main frontend application (Streamlit or Flask)
+│   ├── pages/                  # Flashcards, quiz, summary views
+│   ├── components/             # Reusable UI elements and layout components
+│   └── main.py                 # Entry point for the app
+│
+├── backend/                    # Core logic and AI services
+│   ├── document_parser.py      # PDF, DOCX, TXT file parsers
+│   ├── rag_pipeline.py         # LangChain / RAG pipeline for Q&A
+│   ├── quiz_generator.py       # AI-based multiple-choice quiz creator
+│   ├── summarizer.py           # Text summarization logic
+│   └── flashcard_creator.py    # Q&A pair and flashcard generator
+│
+├── static/
+│   └── sample_docs/            # Example study files for testing
+│
+├── requirements.txt            # Python dependencies
+└── README.md                   # Project overview and documentation
+```
 
 
 ---
